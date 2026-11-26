@@ -1,0 +1,14 @@
+services:
+  api:
+    build: .
+    image: noshow-triage-mlops:latest
+    ports:
+      - "8000:8000"
+  ui:
+    build: .
+    image: noshow-triage-mlops:latest
+    command: ["streamlit", "run", "app/ui.py", "--server.port=8501", "--server.address=0.0.0.0"]
+    ports:
+      - "8501:8501"
+    depends_on:
+      - api
