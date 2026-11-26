@@ -15,7 +15,7 @@ ARTIFACT_URI = (ROOT / "mlruns").as_uri()
 EXPERIMENT_NAME = "noshow-triage-mlops"
 MODEL_NAME = "noshow-triage-model"
 
-EXPECTED_DATA_MD5 = ""
+EXPECTED_DATA_MD5 = "cc55525de6e2b615aeba50095e8aaa95"
 
 SEED = 42
 DECISION_HOUR = 17
@@ -63,7 +63,8 @@ NUMERIC_FEATURES = [
 
 SIMPLE_FEATURES = ["age", "lead_days", "scholarship"]
 
-SLICE_COLUMNS = ["gender", "age_band", "neighbourhood", "scholarship", "handcap_any", "lead_band"]
+SLICE_COLUMNS = ["gender", "age_band", "neighbourhood",
+                 "scholarship", "handcap_any", "lead_band"]
 
 DROPPED_INPUTS = {
     "sms_received": "Send time is not in the file, so its existence at 5 pm the day before cannot be shown.",
@@ -73,18 +74,32 @@ DROPPED_INPUTS = {
 }
 
 COLUMN_AUDIT = [
-    {"column": "PatientId", "written_when": "At patient registration", "available_at_decision_time": "Yes", "role": "Key only; used to build prior-appointment history", "note": "Never a feature itself"},
-    {"column": "AppointmentID", "written_when": "At booking", "available_at_decision_time": "Yes", "role": "Row key", "note": "Checked for duplicates"},
-    {"column": "Gender", "written_when": "At registration", "available_at_decision_time": "Yes", "role": "Slice analysis only", "note": "Excluded as input by charter"},
-    {"column": "ScheduledDay", "written_when": "At booking", "available_at_decision_time": "Only if booked before 17:00 the day before", "role": "Feature (lead time, booking hour, weekday)", "note": "Rows booked later are outside the scored population"},
-    {"column": "AppointmentDay", "written_when": "At booking", "available_at_decision_time": "Yes", "role": "Feature (weekday) and split key", "note": "Date only, no clock time in the file"},
-    {"column": "Age", "written_when": "At registration or booking", "available_at_decision_time": "Yes", "role": "Feature", "note": "Invalid values removed"},
-    {"column": "Neighbourhood", "written_when": "At registration", "available_at_decision_time": "Yes", "role": "Slice analysis only", "note": "Excluded as input by charter"},
-    {"column": "Scholarship", "written_when": "Enrolment flag; timestamp not in the file", "available_at_decision_time": "Assumed yes (VERIFY)", "role": "Feature", "note": "Assumption stated in report"},
-    {"column": "Hipertension", "written_when": "Patient record flag; timestamp not in the file", "available_at_decision_time": "Assumed yes (VERIFY)", "role": "Feature", "note": "Assumption stated in report"},
-    {"column": "Diabetes", "written_when": "Patient record flag; timestamp not in the file", "available_at_decision_time": "Assumed yes (VERIFY)", "role": "Feature", "note": "Assumption stated in report"},
-    {"column": "Alcoholism", "written_when": "Patient record flag; timestamp not in the file", "available_at_decision_time": "Assumed yes (VERIFY)", "role": "Feature", "note": "Assumption stated in report"},
-    {"column": "Handcap", "written_when": "Patient record flag; timestamp not in the file", "available_at_decision_time": "Assumed yes (VERIFY)", "role": "Slice analysis only", "note": "Excluded as input by charter"},
-    {"column": "SMS_received", "written_when": "Relative to the appointment; send time not in the file", "available_at_decision_time": "Cannot be shown", "role": "Excluded", "note": "Possible leakage and confounded with lead time"},
-    {"column": "No-show", "written_when": "After the appointment day", "available_at_decision_time": "No", "role": "Target only", "note": "Label"},
+    {"column": "PatientId", "written_when": "At patient registration", "available_at_decision_time": "Yes",
+        "role": "Key only; used to build prior-appointment history", "note": "Never a feature itself"},
+    {"column": "AppointmentID", "written_when": "At booking",
+        "available_at_decision_time": "Yes", "role": "Row key", "note": "Checked for duplicates"},
+    {"column": "Gender", "written_when": "At registration", "available_at_decision_time": "Yes",
+        "role": "Slice analysis only", "note": "Excluded as input by charter"},
+    {"column": "ScheduledDay", "written_when": "At booking", "available_at_decision_time": "Only if booked before 17:00 the day before",
+        "role": "Feature (lead time, booking hour, weekday)", "note": "Rows booked later are outside the scored population"},
+    {"column": "AppointmentDay", "written_when": "At booking", "available_at_decision_time": "Yes",
+        "role": "Feature (weekday) and split key", "note": "Date only, no clock time in the file"},
+    {"column": "Age", "written_when": "At registration or booking",
+        "available_at_decision_time": "Yes", "role": "Feature", "note": "Invalid values removed"},
+    {"column": "Neighbourhood", "written_when": "At registration", "available_at_decision_time": "Yes",
+        "role": "Slice analysis only", "note": "Excluded as input by charter"},
+    {"column": "Scholarship", "written_when": "Enrolment flag; timestamp not in the file",
+        "available_at_decision_time": "Assumed yes (VERIFY)", "role": "Feature", "note": "Assumption stated in report"},
+    {"column": "Hipertension", "written_when": "Patient record flag; timestamp not in the file",
+        "available_at_decision_time": "Assumed yes (VERIFY)", "role": "Feature", "note": "Assumption stated in report"},
+    {"column": "Diabetes", "written_when": "Patient record flag; timestamp not in the file",
+        "available_at_decision_time": "Assumed yes (VERIFY)", "role": "Feature", "note": "Assumption stated in report"},
+    {"column": "Alcoholism", "written_when": "Patient record flag; timestamp not in the file",
+        "available_at_decision_time": "Assumed yes (VERIFY)", "role": "Feature", "note": "Assumption stated in report"},
+    {"column": "Handcap", "written_when": "Patient record flag; timestamp not in the file",
+        "available_at_decision_time": "Assumed yes (VERIFY)", "role": "Slice analysis only", "note": "Excluded as input by charter"},
+    {"column": "SMS_received", "written_when": "Relative to the appointment; send time not in the file",
+        "available_at_decision_time": "Cannot be shown", "role": "Excluded", "note": "Possible leakage and confounded with lead time"},
+    {"column": "No-show", "written_when": "After the appointment day",
+        "available_at_decision_time": "No", "role": "Target only", "note": "Label"},
 ]
