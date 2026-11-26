@@ -1,0 +1,16 @@
+{
+  "rows_raw": 110527,
+  "rows_duplicate_appointment_id": 0,
+  "rows_invalid_age": 6,
+  "rows_booked_after_appointment_date": 5,
+  "rows_clean": 110521,
+  "rows_not_booked_by_decision_time": 38874,
+  "no_show_rate_not_booked_by_decision_time": 0.04794978648968462,
+  "rows_model_table": 71647,
+  "rows_train": 60126,
+  "rows_test": 11521,
+  "train_end_date": "2016-06-02",
+  "first_appointment_date": "2016-04-29",
+  "last_appointment_date": "2016-06-08",
+  "data_md5": "cc55525de6e2b615aeba50095e8aaa95"
+}

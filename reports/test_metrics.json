@@ -1,0 +1,82 @@
+{
+  "selected_run": "hgb-tuned",
+  "test_period": [
+    "2016-06-03",
+    "2016-06-08"
+  ],
+  "test_rows": 11521,
+  "test_days": 4,
+  "model_at_flag_rate": {
+    "n": 11521,
+    "prevalence": 0.26108844718340424,
+    "flag_rate": 0.19998264039579897,
+    "precision_at_flag": 0.3624131944444444,
+    "recall_at_flag": 0.277593085106383,
+    "lift_at_flag": 1.3880859086417698,
+    "pr_auc": 0.3453623760225073,
+    "roc_auc": 0.6040895526491399
+  },
+  "model_at_threshold": {
+    "threshold": 0.3829499534021601,
+    "flag_rate_at_threshold": 0.17186008159013974,
+    "precision_at_threshold": 0.3707070707070707,
+    "recall_at_threshold": 0.2440159574468085,
+    "tp": 734,
+    "fp": 1246,
+    "fn": 2274,
+    "tn": 7267
+  },
+  "baselines_at_flag_rate": {
+    "constant": {
+      "n": 11521,
+      "prevalence": 0.26108844718340424,
+      "flag_rate": 0.19998264039579897,
+      "precision_at_flag": 0.2586805555555556,
+      "recall_at_flag": 0.1981382978723404,
+      "lift_at_flag": 0.9907774868868203,
+      "pr_auc": 0.26108844718340424,
+      "roc_auc": 0.5
+    },
+    "rule": {
+      "n": 11521,
+      "prevalence": 0.26108844718340424,
+      "flag_rate": 0.19998264039579897,
+      "precision_at_flag": 0.3020833333333333,
+      "recall_at_flag": 0.23138297872340424,
+      "lift_at_flag": 1.157015320257092,
+      "pr_auc": 0.28994005334920525,
+      "roc_auc": 0.5503287681418406
+    },
+    "simple_logreg": {
+      "n": 11521,
+      "prevalence": 0.26108844718340424,
+      "flag_rate": 0.19998264039579897,
+      "precision_at_flag": 0.3246527777777778,
+      "recall_at_flag": 0.24867021276595744,
+      "lift_at_flag": 1.2434589936096336,
+      "pr_auc": 0.3118043777715038,
+      "roc_auc": 0.5810764661244004
+    }
+  },
+  "brier": 0.1891793904629531,
+  "calls_per_day_at_flag_rate": 576.0,
+  "break_even_recovery_rate": 0.5518562874251497,
+  "cost_ratio_assumption": 5.0,
+  "criteria": {
+    "beats_rule": true,
+    "lift_ok": true,
+    "kill_a": false,
+    "kill_b": false,
+    "verdict": "DEPLOY AS A SUPERVISED PILOT"
+  },
+  "confusion_matrix_rows_actual_cols_flagged": [
+    [
+      7267,
+      1246
+    ],
+    [
+      2274,
+      734
+    ]
+  ]
+}
